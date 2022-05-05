@@ -1,0 +1,17 @@
+PalsyVirus.py
+NetWorm.py
+keylogger.py
+ransomware.py
+virus.py
+windows-wifi-passowd-show.py
+worm-virus.py
+destroy.py
+evilBunnyTrojan.py
+PowershellRAT.py
+client.py
+pythonvirus.py
+rat.py
+RAT.py
+client.pyw
+zipbomb.py
+zipbomber.py
