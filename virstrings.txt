@@ -1,0 +1,51 @@
+virus_code = get_virus_code()
+class Virus
+if self.infect_string in line:
+SIGNATURE = "SIMPLE PYTHON VIRUS"
+https://raw.githubusercontent.com/danielmiessler/SecLists/
+client.connect(host, 22, "root", password)
+subprocess.Popen("%s"%f, creationflags=subprocess.CREATE_NEW_CONSOLE, shell=True)
+regKey = OpenKey(regConnect, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", 0, KEY_WRITE)
+Backdoor_Name
+def download_ssh_passwords(filename)
+a = subprocess.check_output([‘netsh’, ‘wlan’, ‘show’,’profiles’]).decode(‘utf-8’).split(‘\n’)
+if line == '### START OF VIRUS ###\n':
+PhysicalDrive0
+AllocateReadBuffer(512)
+infected
+Infected
+evilBunnyServerPort
+Something wrong happened. Failed to connect to evil server?
+t2 = start_new_thread(keylog, ())
+def keylog()
+def on_press(key)
+keyboard.Listener(on_press=on_press)
+'\n\n\nYOU GOT INFECTED IHIHIHIH!'
+f'hackers says: {server_command}'
+aKey = OpenKey(aReg, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Run")
+Python based backdoor
+Set-ExecutionPolicy Unrestricted
+Backdoor successful...
+KEYLOGGER_ST
+slowloris, reference from https:#github.com/gkbrk/slowloris
+xor_dec('CRIMB0cKCwUIGAABEVQVClMaEQQQHB8eGwcLBhQTARYUFRoY', key),
+bot = telebot.TeleBot(token, threaded=True)
+send_chat_action(id_chat, 'upload_photo')
+CRANKLIN PYTHON VIRUS
+filestoinfect
+AdminRightsRequired
+ProcessBSODProtectionEnabled
+Encrypt(self, filename)
+StartRansom()
+tk.Label(root, text='YOUR FILES HAVE BEEN ENCRYPTED')
+encrypt_file
+personal files have been encrypted
+disableTaskManager
+ctypes.windll.user32.LockWorkStation()
+keypressed(
+mkdir(rf"{self.config.StoragePath}\{self.config.StorageFolder}")
+Google\Chrome\User Data\Default\Login Data
+Google\\Chrome\\User Data\\Default\\Login Data
+text="DDOS"
+keylogger(
+virus made in python
