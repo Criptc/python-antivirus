@@ -7,6 +7,8 @@ supfiles = []
 done_dirs = []
 unopenable = []
 
+print('working')
+
 def check_dir(the_dir):
     global unopenable
     cur_dir = the_dir
@@ -17,9 +19,11 @@ def check_dir(the_dir):
     newline = False
     scaned_files = []
     samples_file = 'virstrings.txt'
+    
     f = open(samples_file, 'r')
     virstrings = f.read().split('\n')
     f.close()
+    
     for a, aa, filenames in os.walk(cur_dir, topdown=True):
         for file in filenames:
             if file != __file__ or samples_file:
@@ -28,18 +32,21 @@ def check_dir(the_dir):
                         time.sleep(0.05)
                     elif argv[1] == 'slow':
                         time.sleep(1)
+                
                 except:
-                    time.sleep(0.5)
+                    time.sleep(1)
                 if platform == 'linux':
                     full_file = str(a) + '/' + str(file)
                 elif platform == 'windows':
                     full_file = str(a) + '\\' + str(file)
                 scaned_files = scaned_files + [file]
+                
                 if file.endswith('.py') or file.endswith('.pym'):
                     try:
                         f = open(full_file, 'r')
                         data = f.read().split('\n')
                         f.close()
+                    
                     except:
                         if unopenablele == []:
                             unopenablele = [full_file]
@@ -51,16 +58,17 @@ def check_dir(the_dir):
                             if i in a:
                                 vir_strs = vir_strs + [file + ':' + ''.join(virstrings[i:il])]
 
-    breaknt = False
     if len(vir_strs) > 0:
         for i in range(len(vir_strs)):
             time.sleep(0.1)
             il = i + 1
             filename = ''.join(''.join(vir_strs[i:il]).split(':')[0:1])
             vir_files = vir_files + [filename]
+    
     f = open('virnames.txt')
     data = f.read().split('\n')
     f.close()
+    
     sup_files = []
     for i in data:
         for a in scaned_files:
@@ -70,6 +78,7 @@ def check_dir(the_dir):
                 else:
                     sup_files = [a]
     cur_dir = [cur_dir]
+    
     if unopenablele != []:
         return vir_strs, vir_files, sup_files, cur_dir, unopenablele
     else:
@@ -78,14 +87,17 @@ def check_dir(the_dir):
 
 def stoper(filename, dirs):
     quarentined_files = []
+    
     for i in quarentined_files:
         if filename == i:
             breaknt = True
             break
         else:
             quarentined_files = quarentined_files + [filename]
+    
     if quarentined_files == []:
         quarentined_files = quarentined_files + [filename]
+    
     try:
         f = open(filename, 'a+')
         data = f.read().split('\n')
@@ -93,6 +105,7 @@ def stoper(filename, dirs):
             da = encode(i)
             f.write(da + '\n')
         f.close()
+    
     except:
         if platform == 'linux':
             print(f'can\'t open potential malware file {filename}, delete it yourself.')
@@ -120,9 +133,11 @@ for dirs in dirs_to_check:
 
 if virstrs != []:
     print('\npotentialy dangrous strings in python files:')
+    
     for i in virstrs:
         print(i)
     print('\n')
+
 if virfiles != []:
     print('disabling files')
     for i in virfiles:
@@ -144,4 +159,5 @@ if virfiles == virstrs:
     print(f'no virus files found in {unopenable} files\n')
 else:
     print('scaned', unopenable, 'files\n')
+
 print(f'scaned {len(done_dirs)} directories')
