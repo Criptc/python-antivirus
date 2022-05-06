@@ -1,0 +1,55 @@
+import zlib, base64
+from base64 import *
+
+def asciiit(var):
+    out = ''
+    for i in range(len(var)):
+        il = i + 1
+        if out != '':
+            out = out + '~' + str(ord(str(var[i:il])))
+        else:
+            out = str(ord(str(var[i:il])))
+    return out
+
+def unasciiit(var):
+        out = ''
+        var = var.split('~')
+        for i in range(len(var)):
+            il = i + 1
+            out = out + str(chr(int(''.join(var[i:il]))))
+        return out
+
+def decode(data):
+    data = b85decode(data.encode()).decode()
+    data = data.replace('{', '1').replace('}', 'D')
+    data = b64decode(b32decode(b16decode(a85decode(data.encode())))).decode()
+    data = data.split('~~~')
+    num = int(zlib.decompress(base64.b64decode(unasciiit(base64.b64decode(''.join(data[1:2]).encode()).decode()).encode())).decode())
+    data = ''.join(data[0:1])
+    for i in range(num):
+        data = zlib.decompress(base64.b64decode(unasciiit(base64.b64decode(data.encode()).decode()).encode())).decode()
+    return data
+
+def encode(data, num):
+    for i in range(num):
+        data = base64.b64encode(asciiit(base64.b64encode(zlib.compress(data.encode())).decode()).encode()).decode()
+    data = data + '~~~' + base64.b64encode(asciiit(base64.b64encode(zlib.compress(str(num).encode())).decode()).encode()).decode()
+    data = a85encode(b16encode(b32encode(b64encode(data.encode())))).decode().replace('1', '{').replace('D', '}')
+    data = b85encode(data.encode()).decode()
+    return(data)
+
+print('will fix any ruined files that the python antivirus ruined by false positive')
+inp = input('name of file(and path if not in current dir): ')
+try:
+    f = open(inp, 'w+')
+except:
+    print('can\'t open file, no permision or doesn\'t exist')
+    exit(1)
+data = f.read()
+try:
+    data = decode(data)
+except:
+    print('file is not ruined or file is cut off')
+    exit(1)
+f.write(data)
+f.close()
